@@ -8,7 +8,7 @@ import { setWord } from "../redux/gameSlice";
 import { WORDS } from "../utils/constants";
 
 const Wordle = () => {
-  const wordHistory = useSelector((state) => state.game.wordHistory);
+  const { guess, guesses, wordHistory } = useSelector((state) => state.game);
   const dispatch = useDispatch();
 
   const getRandomWord = () => WORDS[Math.floor(Math.random() * WORDS.length)];
@@ -16,8 +16,6 @@ const Wordle = () => {
   useEffect(() => {
     dispatch(setWord(getRandomWord()));
   }, []);
-
-  console.log(wordHistory);
 
   return (
     <View style={{ flex: 1 }}>

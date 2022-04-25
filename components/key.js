@@ -2,8 +2,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 import { COLORS } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { setLetter, guessWord, deleteLetter } from "../redux/gameSlice";
 
 const Key = ({ value, letterGuessType }) => {
+  const dispatch = useDispatch();
+
   const getColors = () => {
     if (letterGuessType) {
       return {
@@ -32,6 +36,15 @@ const Key = ({ value, letterGuessType }) => {
           borderBottomRightRadius: value === "del" ? 20 : null,
         },
       ]}
+      onPress={() => {
+        dispatch(
+          value === "enter"
+            ? guessWord()
+            : value === "del"
+            ? deleteLetter()
+            : setLetter(value)
+        );
+      }}
     >
       {value === "del" ? (
         <Feather name="delete" size={24} color="black" />
