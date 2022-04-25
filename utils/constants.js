@@ -1,3 +1,19 @@
+export const COLORS = {
+  yellow: "#c6b65e",
+  green: "#74a967",
+  gray: "#d3d6da",
+  darkGray: "#787c7e",
+  white: "#ffffff",
+  black: "#000000",
+};
+
+export const LETTER_GUESS_TYPE = {
+  wrong: -1,
+  misplace: 0,
+  correct: 1,
+  noGuess: null,
+};
+
 export const WORDS = [
   "aargh",
   "abaca",

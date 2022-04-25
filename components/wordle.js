@@ -20,8 +20,12 @@ const Wordle = () => {
   console.log(wordHistory);
 
   return (
-    <View>
-      <View style={{ backgroundColor: "red" }}>
+    <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+        }}
+      >
         <WordGrid />
       </View>
       <Keyboard />
